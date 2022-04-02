@@ -10,7 +10,7 @@ Function.prototype.$call = function (context, ...rest) {
     context = context ? Object(context) : (globalThis || window)
     // 给context添加将被调用的函数
     context.callerFn = this
-    // 获取函数执行结果
+    // 保存函数执行结果
     const result = context.callerFn(...rest)
     // 删除context添加的函数，避免在构造函数内添加属性
     delete context.callerFn
